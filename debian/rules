@@ -23,6 +23,7 @@ MAKEARGS=V=1 \
 	 USE_PROMEX=1 \
 	 USE_OT=1 \
 	 LUA_INC=/usr/include/lua5.3 \
+	 DEFINE=-DUSE_ECH \
 	 EXTRA=admin/halog/halog
 
 ifeq ($(DEB_HOST_ARCH_OS),linux)

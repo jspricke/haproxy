@@ -6,6 +6,7 @@ include /usr/share/dpkg/buildflags.mk
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+export DEB_CFLAGS_MAINT_APPEND = -Werror
 
 MAKEARGS=V=1 \
 	 DESTDIR=debian/haproxy \
@@ -42,6 +43,7 @@ else
 endif
 
 MAKEARGS += DEBUG_CFLAGS="$(CFLAGS) $(CPPFLAGS)"
+MAKEARGS += CFLAGS="$(CFLAGS) $(CPPFLAGS)"
 MAKEARGS += LDFLAGS="$(LDFLAGS)"
 MAKEARGS += VERSION="$(DEB_VERSION_UPSTREAM)"
 MAKEARGS += SUBVERS="-$(lastword $(subst -, ,$(DEB_VERSION)))"
